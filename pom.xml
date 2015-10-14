@@ -8,7 +8,7 @@
     </parent>
     <groupId>no.imr.nmdapi.dataset.queue</groupId>
     <artifactId>nmdapi-dataset-queue</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Application - NMDDataset update queue</name>
     <repositories>
@@ -127,7 +127,7 @@
             <artifactId>commons-message-processor</artifactId>
             <version>1.0.0</version>
             <type>jar</type>
-        </dependency>
+        </dependency >
     
         <dependency>
             <groupId>no.imr.nmdapi.dao.file</groupId>
