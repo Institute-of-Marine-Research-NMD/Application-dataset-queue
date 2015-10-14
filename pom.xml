@@ -8,7 +8,7 @@
     </parent>
     <groupId>no.imr.nmdapi.dataset.queue</groupId>
     <artifactId>nmdapi-dataset-queue</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Application - NMDDataset update queue</name>
     <repositories>
@@ -310,7 +310,7 @@
         <connection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</connection>
         <url>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</url>
         <developerConnection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</developerConnection>
-        <tag>nmdapi-dataset-queue-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <repository>
