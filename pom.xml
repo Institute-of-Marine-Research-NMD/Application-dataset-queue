@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+    <!--    <parent>
         <groupId>no.imr.nmdapi.web</groupId>
         <artifactId>nmdapi-parent</artifactId>
         <version>0.0.9</version>
-    </parent>
+    </parent>-->
     <groupId>no.imr.nmdapi.dataset.queue</groupId>
     <artifactId>nmdapi-dataset-queue</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Application - NMDDataset update queue</name>
     <repositories>
@@ -36,6 +36,7 @@
         <activemq.version>5.11.1</activemq.version>
         <tomcat.version>7.0.59</tomcat.version>
         <spring.version>4.1.5.RELEASE</spring.version>
+        <jsr250.version>1.0</jsr250.version>
     </properties>
     <dependencies>
         <dependency>
@@ -73,18 +74,22 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
             <exclusions>
                 <!-- Commons logging is excluded because it is overriden by JCL-over-slf4j -->
                 <exclusion>
@@ -96,29 +101,35 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>jsr250-api</artifactId>
+            <version>${jsr250.version}</version>
         </dependency>
 
         
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat.version}</version>
             <scope>provided</scope>
         </dependency>
     
@@ -151,6 +162,7 @@
         <dependency>
             <groupId>no.imr.framework.logging.slf4j</groupId>
             <artifactId>logging-framework</artifactId>
+            <version>1.1.7</version>
         </dependency>
         
     </dependencies>
