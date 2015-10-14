@@ -1,0 +1,75 @@
+<configuration scan="true" scanPeriod="30 seconds" >
+    <!-- Rescan logging setup every 30 seconds -->
+
+    <logger name="org.apache.activemq" level="WARN"/>
+    
+    <!-- Rolling file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+
+        <file>${catalina.base}/logs/datasetQueue/datasetQueue.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover -->
+            <fileNamePattern>${catalina.base}/logs/datasetQueue/datasetQueue.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- Keep 30 days' worth of history -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Rolling file appender -->
+    <appender name="FILEERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+
+        <file>${catalina.base}/logs/datasetQueue/datasetQueue_error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover -->
+            <fileNamePattern>${catalina.base}/logs/datasetQueue/datasetQueue_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- Keep 30 days' worth of history -->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Rolling file appender -->
+    <appender name="PERFORMANCEFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+
+        <file>${catalina.base}/logs/datasetQueue/datasetQueue.performance.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover -->
+            <fileNamePattern>${catalina.base}/logs/datasetQueue/datasetQueue.performance.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- Keep 30 days' worth of history -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %X{req.remoteHost} %X{req.queryString} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Performance logging -->
+    <logger name="no.imr.framework.logging.slf4j.aspects.PerformanceLoggerAspect" level="INFO" additivity="false">
+        <appender-ref ref="PERFORMANCEFILE" />
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="FILEERROR" />
+    </root>
+</configuration>

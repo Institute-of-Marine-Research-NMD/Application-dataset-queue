@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ActiveMQConfig {
-    
+
     /**
      * Active mq properties.
      */
@@ -35,7 +35,7 @@ public class ActiveMQConfig {
         factory.setBrokerURL(activeMQConfiguration.getString("activemq.brokerurl"));
         return factory;
     }
- 
+
     /**
      * Create pooled connection.
      *

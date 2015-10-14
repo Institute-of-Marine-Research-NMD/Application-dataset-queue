@@ -1,6 +1,5 @@
 package no.imr.nmdapi.dataset.queue.web.config;
 
-
 import no.imr.messaging.exception.CriticalException;
 import no.imr.messaging.exception.ProcessingException;
 import org.apache.camel.builder.RouteBuilder;
@@ -16,12 +15,12 @@ import org.springframework.context.annotation.Configuration;
  * @author Terry Hannant <a5119>
  */
 @Configuration
-public class CamelConfig  extends SingleRouteCamelConfiguration implements InitializingBean {
- 
+public class CamelConfig extends SingleRouteCamelConfiguration implements InitializingBean {
+
     @Autowired
     @Qualifier("configuration")
     PropertiesConfiguration configuration;
- 
+
     @Override
     public RouteBuilder route() {
         return new RouteBuilder() {
@@ -34,7 +33,7 @@ public class CamelConfig  extends SingleRouteCamelConfiguration implements Initi
                 onException(ProcessingException.class).handled(true).
                         to("errorProcessor").
                         to("jms:queue:".concat(configuration.getString("queue.outgoing.processingFailure")));
-                
+
                 from("jms:queue:".concat(configuration.getString("queue.incoming")))
                         .to("log:begin?level=INFO&showHeaders=true&showBody=false")
                         .to("datasetProcessor")
@@ -42,11 +41,10 @@ public class CamelConfig  extends SingleRouteCamelConfiguration implements Initi
             }
         };
     }
-       
+
     @Override
     public void afterPropertiesSet() throws Exception {
         // Do nothing. 
     }
 
-    
 }

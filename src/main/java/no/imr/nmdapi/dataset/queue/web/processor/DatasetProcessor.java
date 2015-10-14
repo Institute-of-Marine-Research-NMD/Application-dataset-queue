@@ -40,12 +40,6 @@ public class DatasetProcessor {
      public void handleMessage(Exchange exchange) throws DatatypeConfigurationException {
         Map<String, Object> headers = exchange.getIn().getHeaders();
 
-       //  exchange.getOut().setHeaders(exchange.getIn().getHeaders());
-          
-      //  String messageSummary = buildSummary(exchange.getIn().getHeaders());
-        //Initially set body to summary of specific headers so it can be included in error handling 
-      //  exchange.getOut().setBody(messageSummary);
-
         //Check mandatory headers
          if (headers.containsKey(dataTypeHeaderName) 
                 &&  headers.containsKey(dataSetHeaderName)

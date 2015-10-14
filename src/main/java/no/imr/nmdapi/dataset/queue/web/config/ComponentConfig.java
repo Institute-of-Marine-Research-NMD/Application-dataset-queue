@@ -12,23 +12,21 @@ import org.springframework.context.annotation.Configuration;
 /**
  *
  * @author Terry Hannant <a5119>
- * 
+ *
  * Class to load shared configuration files.
  */
 @Configuration
 public class ComponentConfig {
-    
+
     @Autowired
     @Qualifier("configuration")
     PropertiesConfiguration configuration;
-    
+
     @Bean(name = "activeMQConf")
     public PropertiesConfiguration activeMQConfiguration() throws ConfigurationException {
-        org.apache.commons.configuration.PropertiesConfiguration activeMQConfiguration = new org.apache.commons.configuration.PropertiesConfiguration(configuration.getString("activeMQ.properties"));
+        org.apache.commons.configuration.PropertiesConfiguration activeMQConfiguration = new org.apache.commons.configuration.PropertiesConfiguration(System.getProperty("catalina.base") + "/conf/" + configuration.getString("activeMQ.properties"));
         ReloadingStrategy reloadingStrategy = new FileChangedReloadingStrategy();
         activeMQConfiguration.setReloadingStrategy(reloadingStrategy);
         return activeMQConfiguration;
     }
-
-    
 }
