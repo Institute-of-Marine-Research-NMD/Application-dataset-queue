@@ -8,7 +8,7 @@
     </parent>
     <groupId>no.imr.nmdapi.dataset.queue</groupId>
     <artifactId>nmdapi-dataset-queue</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>war</packaging>
     <name>Application - NMDDataset update queue</name>
     <repositories>
@@ -127,7 +127,7 @@
             <artifactId>commons-message-processor</artifactId>
             <version>1.0.0</version>
             <type>jar</type>
-        </dependency >
+        </dependency>
     
         <dependency>
             <groupId>no.imr.nmdapi.dao.file</groupId>
@@ -299,7 +299,7 @@
         <connection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</connection>
         <url>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</url>
         <developerConnection>scm:git:git@github.com:Institute-of-Marine-Research-NMD/Application-dataset-queue.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>nmdapi-dataset-queue-1.0.1</tag>
     </scm>
     <distributionManagement>
         <repository>
